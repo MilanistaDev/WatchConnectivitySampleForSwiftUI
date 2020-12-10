@@ -10,10 +10,34 @@ import SwiftUI
 struct ContentView: View {
     
     var viewModel = MessageListViewModel()
+    @State private var isReachable = "NO"
     
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            VStack {
+                HStack {
+                    Button(action: {
+                        // iPhone と Apple Watch が疎通できるか
+                        // true の場合メッセージ送信可能
+                        self.isReachable = self.viewModel.session.isReachable ? "YES": "NO"
+                    }) {
+                        Text("Check")
+                    }
+                    .padding(.leading, 16.0)
+                    Spacer()
+                    Text("isReachable")
+                        .font(.headline)
+                        .padding()
+                    Text(self.isReachable)
+                        .foregroundColor(.gray)
+                        .font(.subheadline)
+                        .padding()
+                }
+                .background(Color.init(.systemGray5))
+                Spacer()
+            }
+            .navigationTitle("Receiver")
+        }
     }
 }
 

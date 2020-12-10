@@ -19,6 +19,8 @@ struct ContentView: View {
                 // タップ時の処理
                 // [String: Any] はこっち
                 // self.sendMessage(index: index)
+                // Data型はこっち
+                self.sendMessageData(index: index)
             } label: {
                 HStack {
                     Text(self.emojiAnimals[index])

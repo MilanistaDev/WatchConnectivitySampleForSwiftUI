@@ -35,8 +35,11 @@ struct ContentView: View {
                 }
                 .background(Color.init(.systemGray5))
                 List {
-                    ForEach(self.viewModel.messages, id: \.self) { animal in
-                        MessageRow(animal: animal)
+//                    ForEach(self.viewModel.messages, id: \.self) { animal in
+//                        MessageRow(animal: animal)
+//                    }
+                    ForEach(self.viewModel.messagesData, id: \.self) { animal in
+                        MessageRow(animalModel: animal)
                     }
                 }
                 .listStyle(PlainListStyle())

@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct MessageRow: View {
-    let animal: String
+    //let animal: String
+    let animalModel: AnimalModel
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(animal)
+            Text(animalModel.emoji + animalModel.name)
                 .font(.body)
                 .padding(.vertical, 4.0)
             // 受信時のタイムスタンプ
@@ -25,7 +26,8 @@ struct MessageRow: View {
 
 struct MessageRow_Previews: PreviewProvider {
     static var previews: some View {
-        MessageRow(animal: "🐱ネコ")
+        //MessageRow(animal: "🐱ネコ")
+        MessageRow(animalModel: AnimalModel(name: "ネコ", emoji: "🐱"))
     }
 }
 

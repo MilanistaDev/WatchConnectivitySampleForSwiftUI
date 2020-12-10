@@ -11,6 +11,8 @@ struct ContentView: View {
     let animals = ["ネコ", "イヌ", "ハムスター", "ドラゴン", "ユニコーン"]
     let emojiAnimals = ["🐱", "🐶", "🐹", "🐲", "🦄"]
     
+    var viewModel = AnimalListViewModel()
+    
     var body: some View {
         List(0 ..< animals.count) { index in
             Button {

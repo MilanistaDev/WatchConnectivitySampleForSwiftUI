@@ -8,9 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    let animals = ["ネコ", "イヌ", "ハムスター", "ドラゴン", "ユニコーン"]
+    let emojiAnimals = ["🐱", "🐶", "🐹", "🐲", "🦄"]
+    
     var body: some View {
-        Text("Hello, World!")
-            .padding()
+        List(0 ..< animals.count) { index in
+            Button {
+                // タップ時の処理
+            } label: {
+                HStack {
+                    Text(self.emojiAnimals[index])
+                        .font(.title)
+                        .padding()
+                    Text(self.animals[index])
+                }
+            }
+        }
+        .listStyle(CarouselListStyle())
+        .navigationBarTitle(Text("Animal List"))
     }
 }
 

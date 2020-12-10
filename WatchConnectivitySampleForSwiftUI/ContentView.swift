@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    var viewModel = MessageListViewModel()
+    // @ObservedObject をつけてメッセージ配列の変更通知を受け取る
+    @ObservedObject var viewModel = MessageListViewModel()
     @State private var isReachable = "NO"
     
     var body: some View {
@@ -34,6 +34,12 @@ struct ContentView: View {
                         .padding()
                 }
                 .background(Color.init(.systemGray5))
+                List {
+                    ForEach(self.viewModel.messages, id: \.self) { animal in
+                        MessageRow(animal: animal)
+                    }
+                }
+                .listStyle(PlainListStyle())
                 Spacer()
             }
             .navigationTitle("Receiver")

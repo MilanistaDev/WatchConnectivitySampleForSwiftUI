@@ -25,6 +25,8 @@
 		FD72B34525823A2F002D191B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD72B34425823A2F002D191B /* Preview Assets.xcassets */; };
 		FD72B375258243AE002D191B /* AnimalListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72B374258243AE002D191B /* AnimalListViewModel.swift */; };
 		FD72B38125824606002D191B /* MessageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72B38025824606002D191B /* MessageListViewModel.swift */; };
+		FD72B38D258256C5002D191B /* MessageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72B38C258256C5002D191B /* MessageRow.swift */; };
+		FD72B3942582571E002D191B /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72B3932582571E002D191B /* Date+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +113,8 @@
 		FD72B34725823A2F002D191B /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		FD72B374258243AE002D191B /* AnimalListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalListViewModel.swift; sourceTree = "<group>"; };
 		FD72B38025824606002D191B /* MessageListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListViewModel.swift; sourceTree = "<group>"; };
+		FD72B38C258256C5002D191B /* MessageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRow.swift; sourceTree = "<group>"; };
+		FD72B3932582571E002D191B /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,7 +178,9 @@
 			children = (
 				FD72B30425823A2D002D191B /* WatchConnectivitySampleForSwiftUIApp.swift */,
 				FD72B30625823A2D002D191B /* ContentView.swift */,
+				FD72B38C258256C5002D191B /* MessageRow.swift */,
 				FD72B38025824606002D191B /* MessageListViewModel.swift */,
+				FD72B3932582571E002D191B /* Date+Extension.swift */,
 				FD72B30825823A2E002D191B /* Assets.xcassets */,
 				FD72B30D25823A2E002D191B /* Info.plist */,
 				FD72B30A25823A2E002D191B /* Preview Content */,
@@ -432,6 +438,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD72B3942582571E002D191B /* Date+Extension.swift in Sources */,
+				FD72B38D258256C5002D191B /* MessageRow.swift in Sources */,
 				FD72B30725823A2D002D191B /* ContentView.swift in Sources */,
 				FD72B30525823A2D002D191B /* WatchConnectivitySampleForSwiftUIApp.swift in Sources */,
 				FD72B38125824606002D191B /* MessageListViewModel.swift in Sources */,

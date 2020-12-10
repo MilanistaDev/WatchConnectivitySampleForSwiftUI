@@ -32,4 +32,12 @@ extension MessageListViewModel: WCSessionDelegate {
     }
     func sessionDidDeactivate(_ session: WCSession) {
     }
+    // メッセージ受信
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        DispatchQueue.main.async {
+            let receivedAnimal = message["animal"] as? String ?? "UMA"
+            let receivedEmoji = message["emoji"] as? String ?? "❓"
+            print(receivedEmoji + receivedAnimal)  // 🐱ネコ
+        }
+    }
 }

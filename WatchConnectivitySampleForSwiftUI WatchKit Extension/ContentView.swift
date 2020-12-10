@@ -17,7 +17,8 @@ struct ContentView: View {
         List(0 ..< animals.count) { index in
             Button {
                 // タップ時の処理
-                self.sendMessage(index: index)
+                // [String: Any] はこっち
+                // self.sendMessage(index: index)
             } label: {
                 HStack {
                     Text(self.emojiAnimals[index])
@@ -36,6 +37,16 @@ struct ContentView: View {
             ["animal": animals[index],
              "emoji": emojiAnimals[index]]
         self.viewModel.session.sendMessage(messages, replyHandler: nil) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
+    private func sendMessageData(index: Int) {
+        let animal = AnimalModel(name: animals[index], emoji: emojiAnimals[index])
+        guard let data = try? JSONEncoder().encode(animal) else {
+            return
+        }
+        self.viewModel.session.sendMessageData(data, replyHandler: nil) { (error) in
             print(error.localizedDescription)
         }
     }

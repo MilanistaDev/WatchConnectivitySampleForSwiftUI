@@ -8,8 +8,10 @@
 import SwiftUI
 import WatchConnectivity
 
-final class MessageListViewModel: NSObject {
-
+final class MessageListViewModel: NSObject, ObservableObject {
+    // 配列に変化があれば変更を通知
+    @Published var messages: [String] = []
+    
     var session: WCSession
     
     init(session: WCSession = .default) {
@@ -38,6 +40,8 @@ extension MessageListViewModel: WCSessionDelegate {
             let receivedAnimal = message["animal"] as? String ?? "UMA"
             let receivedEmoji = message["emoji"] as? String ?? "❓"
             print(receivedEmoji + receivedAnimal)  // 🐱ネコ
+            // 受信したメッセージを配列に格納し配列を更新
+            self.messages.append(receivedEmoji + receivedAnimal)
         }
     }
 }

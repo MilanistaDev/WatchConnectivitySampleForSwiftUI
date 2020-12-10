@@ -11,6 +11,7 @@ import WatchConnectivity
 final class MessageListViewModel: NSObject, ObservableObject {
     // 配列に変化があれば変更を通知
     @Published var messages: [String] = []
+    @Published var messagesData: [AnimalModel] = []
     
     var session: WCSession
     
@@ -34,7 +35,7 @@ extension MessageListViewModel: WCSessionDelegate {
     }
     func sessionDidDeactivate(_ session: WCSession) {
     }
-    // メッセージ受信
+    // メッセージ受信[String: Any]
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         DispatchQueue.main.async {
             let receivedAnimal = message["animal"] as? String ?? "UMA"
@@ -42,6 +43,16 @@ extension MessageListViewModel: WCSessionDelegate {
             print(receivedEmoji + receivedAnimal)  // 🐱ネコ
             // 受信したメッセージを配列に格納し配列を更新
             self.messages.append(receivedEmoji + receivedAnimal)
+        }
+    }
+    
+    // メッセージ受信 Data型
+    func session(_ session: WCSession, didReceiveMessageData messageData: Data) {
+        DispatchQueue.main.async {
+            guard let message = try? JSONDecoder().decode(AnimalModel.self, from: messageData) else {
+                return
+            }
+            self.messagesData.append(message)
         }
     }
 }
